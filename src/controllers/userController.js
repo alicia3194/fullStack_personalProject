@@ -1,17 +1,16 @@
-// const userLogin = require("../models/user");
-// const login = async (req, res) => {
-//   try {
-//     const { email, password } = req.body;
+const userLogin = require("../models/userModel");
 
-//     const user = await userLogin.findOne({ email });
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    await userLogin.loginUser({ email, password });
 
-//   } catch (error) {
-//     res
-//       .status(500)
-//       .json({message: "Error durante el inicio de sesión" });
-//   }
-// };
+    res.status(200).json({ message: "Usuario logeado" });
+  } catch (error) {
+    res.status(500).json({ message: "Error al logearte" });
+  }
+};
 
-// module.exports = {
-//   login,
-// };
+module.exports = {
+  loginUser,
+};

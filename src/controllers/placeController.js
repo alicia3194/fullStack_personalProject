@@ -1,4 +1,3 @@
-// En tu archivo de controladores (placeController.js)
 const placeModel = require("../models/placeModel");
 
 const getAllPlaces = async (req, res) => {
@@ -14,33 +13,24 @@ const getPlacesByType = async (req, res) => {
   try {
     const { type } = req.params;
     const places = await placeModel.getPlacesByType(type);
-    res.status(200).json(places);
+    res.status(200).json(places.rows);
   } catch (error) {
     res.status(500).json({ error: "Error al obtener los lugares por tipo" });
   }
 };
 
-const getPlacesQuery = async (req, res) => {
-  const { type, name } = req.query;
+const getPlacesByName = async (req, res) => {
   try {
-    let places;
-    if (type) {
-      places = await placeModel.getPlacesByType(type); // buscar por type
-    } else if (name) {
-      places = await placeModel.getPlacesQuery(name); // buscar por name
-    } else {
-      return alert("Lugar no encontrado");
-    }
-    res.status(200).json(places);
+    const { name } = req.params;
+    const places = await placeModel.getPlacesByName(name);
+    res.status(200).json(places.rows);
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: "Error al obtener los lugares por tipo o nombre" });
+    res.status(500).json({ error: "Error al obtener los lugares por nombre" });
   }
 };
 
 module.exports = {
   getAllPlaces,
   getPlacesByType,
-  getPlacesQuery,
+  getPlacesByName,
 };

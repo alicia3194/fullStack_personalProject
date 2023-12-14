@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 // middlewares
 
@@ -12,10 +12,10 @@ app.use(express.json());
 // Rutas
 const placeRoutes = require("./src/routes/placeRoutes");
 const favoritesRoutes = require("./src/routes/favoritesRoutes");
-// const userRoutes = require("./src/routes/userRoutes");
+const userRoutes = require("./src/routes/userRoutes");
 
 app.use("/api/places", placeRoutes);
-//app.get("/api/users", userRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/favorites", favoritesRoutes);
 
 app.use("*", (req, res) => {

@@ -6,34 +6,36 @@ const getAllPlaces = async () => {
     const places = await pool.query("SELECT * FROM Places");
     return places;
   } catch (error) {
-    return "Error";
+    throw error;
   }
 };
 
 const getPlacesByType = async (type) => {
   try {
-    const places = await pool.any("SELECT * FROM Places WHERE Type = $1", [
+    const places = await pool.query("SELECT * FROM Places WHERE Type = $1", [
       type,
     ]);
     return places;
   } catch (error) {
-    return "Error";
+    console.error("Error en getPlacesByType:", error.message);
+    throw error;
   }
 };
 
-const getPlacesQuery = async (query) => {
+const getPlacesByName = async (name) => {
   try {
-    const places = await pool.any(
-      "SELECT * FROM Places WHERE Name ILIKE $1 OR Type ILIKE $1",
-      [`%${query}%`]
+    const places = await pool.query(
+      "SELECT * FROM Places WHERE Name ILIKE $1",
+      [`%${name}%`]
     );
     return places;
   } catch (error) {
-    return "Error";
+    throw error;
   }
 };
 
 module.exports = {
   getAllPlaces,
-  getPlacesQuery,
+  getPlacesByType,
+  getPlacesByName,
 };

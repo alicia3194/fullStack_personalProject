@@ -1,13 +1,17 @@
 const queries = require("../../seed/queries");
 const pool = require("../../config/dbsql");
 
-const addFavorite = async (placeId) => {
+const addFavorite = async (placeId, userId) => {
   try {
-    await pool.none("INSERT INTO favorites (place_id) VALUES ($1)", [placeId]);
+    await pool.query(
+      "INSERT INTO favorites (place_id, user_id) VALUES ($1,$2)",
+      [placeId, userId]
+    );
   } catch (error) {
-    throw new Error("Error al agregar favorito a la base de datos");
+    throw error;
   }
 };
+//borrar favorito
 
 module.exports = {
   addFavorite,

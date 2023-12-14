@@ -1,21 +1,25 @@
-// const pool = require("../../config/dbsql");
+const pool = require("../../config/dbsql");
 
-// const loginUser = async (email, password) => {
-//   try {
-//     const user = await pool.oneOrNone(
-//       "SELECT * FROM users WHERE email = $1 AND password = $2",
-//       [email, password]
-//     );
-//     if (user) {
-//       return user;
-//     } else {
-//       throw new Error("Credenciales incorrectas");
-//     }
-//   } catch (error) {
-//     throw new Error("Error en la autenticación del usuario");
-//   }
-// };
+//crear login
+//borrar usuario
 
-// module.exports = {
-//   loginUser,
-// };
+//logeado
+const loginUser = async (email, password) => {
+  try {
+    const user = await pool.query(
+      "SELECT * FROM users WHERE email = $1 AND password = $2",
+      [email, password]
+    );
+    if (user) {
+      return user;
+    } else {
+      throw error;
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = {
+  loginUser,
+};
