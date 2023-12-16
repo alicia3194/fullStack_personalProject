@@ -14,7 +14,7 @@ CREATE TABLE Users (
     User_id SERIAL PRIMARY KEY,
     Name VARCHAR(255),
     Email VARCHAR(255),
-    Password VARCHAR(255)
+   Password VARCHAR(255)
 );
 
 -- Creación tabla favorites.
@@ -23,10 +23,6 @@ CREATE TABLE Favorites (
     Place_id INT REFERENCES Places(Place_id),
     User_id INT REFERENCES Users(User_id)
 );
-
--- Añadir índices a las claves foráneas
--- CREATE INDEX idx_favorites_place_id ON Favorites (Place_id);
--- CREATE INDEX idx_favorites_user_id ON Favorites (User_id);
 
 -- Insercción de datos en la tabla places.
 INSERT INTO Places (name, type, location, schedules, reviews, image)
@@ -48,5 +44,4 @@ VALUES
 ('Librería Miguel Miranda', 'Librería', 'Lope de Vega, 19','Lunes a Viernes de 11:00 a 15:00 y de 17:30 a 20:30', NULL, 'https://www.srperro.com/media/imagenes_galeria/negocio_8297ee57-ad19-43de-9ea6-c03bb1e7a435.original.jpg'),
 ('Cafebrería ad Hoc', 'Librería', 'Buen Suceso 14', 'De 10:00 a 22:00 hrs, de lunes a sábado', NULL, 'https://www.srperro.com/media/imagenes_galeria/negocio_3c3aea2b-d99e-48a8-a835-77a9c0046edb.original.jpg')
 -- Insercción de datos en la tabla users.
-INSERT INTO Users (name, email, password)
-VALUES ('Alicia', 'aliciacortinez@gmail.com', '12345'); 
+INSERT INTO Users (name, email, password) VALUES ($1, $2, $3) RETURNING *;

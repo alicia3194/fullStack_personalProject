@@ -1,1 +1,0 @@
-// que es lo que queremos seleccionar de las tablas creadas

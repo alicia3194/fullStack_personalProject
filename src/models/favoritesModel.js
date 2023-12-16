@@ -1,4 +1,4 @@
-const queries = require("../../seed/queries");
+const queries = require("../../seed/queriesUser");
 const pool = require("../../config/dbsql");
 
 const addFavorite = async (placeId, userId) => {
@@ -11,7 +11,6 @@ const addFavorite = async (placeId, userId) => {
     throw error;
   }
 };
-//borrar favorito
 
 module.exports = {
   addFavorite,

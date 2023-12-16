@@ -5,6 +5,11 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 5001;
 
+const cors = require("cors");
+
+// Permitir todas las solicitudes CORS
+app.use(cors());
+
 // middlewares
 
 app.use(express.json());

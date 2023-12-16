@@ -1,4 +1,4 @@
-const queries = require("../../seed/queries");
+const queries = require("../../seed/queriesUser");
 const pool = require("../../config/dbsql");
 
 const getAllPlaces = async () => {
