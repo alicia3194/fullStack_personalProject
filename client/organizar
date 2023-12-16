@@ -1,0 +1,14 @@
+src/
+|-- components/
+|   |-- Main/
+|       |-- Main.jsx
+|       |-- LoginForm/
+|           |-- LoginForm.jsx
+|       |-- RegisterForm/
+|           |-- RegisterForm.jsx
+|       |-- Dashboard/
+|           |-- Dashboard.jsx
+|-- views/
+|   |-- Home/
+|       |-- Home.jsx
+|-- App.jsx
