@@ -12,6 +12,19 @@ const addFavorite = async (placeId, userId) => {
   }
 };
 
+const checkFavorite = async (placeId, userId) => {
+  try {
+    const result = await pool.query(
+      "SELECT * FROM favorites WHERE place_id = $1 AND user_id = $2",
+      [placeId, userId]
+    );
+    return result.rows.length > 0;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   addFavorite,
+  checkFavorite,
 };

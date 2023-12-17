@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home/Home";
 import Authentication from "./Authentication/Authentication";
-import Details from "./Details/Details";
+import Details from "./Details/Details"
+import Favorites from "./Favorites/Favorites"
+import { useFavorites } from "../../context/FavoritesContext";
+
 const Main = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [places, setPlaces] = useState([]);
-  console.log('places:', places);
+  const { favorites, addToFavorites, removeFromFavorites } = useFavorites();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,12 +28,25 @@ const Main = () => {
   return (
     <main>
       <Routes>
-        <Route
-          path="/"
-          element={<Home places={places} setSearchTerm={setSearchTerm} />}
-        />
+        <Route path="/" element={<Home places={places} setSearchTerm={setSearchTerm} />} />
         <Route path="/auth/*" element={<Authentication />} />
-        <Route path="/places/:placeId" element={<Details places={places} />} />      </Routes>
+        <Route 
+          path="/places/:placeId" 
+          element={<Details places={places} />}
+        />
+        <Route 
+          path="/favorites/check"
+          element={
+            <Favorites
+              places={places}
+              placeId={places.placeId}
+              isFavorite={favorites.includes(places.placeId)}
+              addToFavorites={addToFavorites}
+              removeFromFavorites={removeFromFavorites}
+            />
+          }
+        />
+      </Routes>
     </main>
   );
 };

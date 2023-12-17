@@ -3,6 +3,7 @@ import "./PlaceCard.css";
 import { Link } from 'react-router-dom';
 
 const PlaceCard = ({ place }) => {
+ 
   return (
     <Link to={`/places/${place.place_id}`}>
       <div className="place-card">

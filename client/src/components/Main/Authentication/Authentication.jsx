@@ -13,10 +13,10 @@ const Authentication = () => {
       </Routes>
       <div className="auth-buttons">
         <Link to="/login" className="auth-button">
-          Log in
+          Wof-in
         </Link>
         <Link to="/signup" className="auth-button">
-          Sign up
+          Sign-Paw
         </Link>
       </div>
     </div>

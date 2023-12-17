@@ -7,6 +7,7 @@ import PlaceCard from "./PlaceCard/PlaceCard";
 import FilterButtons from "./FilterButtons/FilterButtons";
 import "./Home.css";
 
+
 const Home = ({ places }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [showPlaces, setShowPlaces] = useState(false);
@@ -54,7 +55,7 @@ const Home = ({ places }) => {
         <>
           {showLogin ? <Login onLogin={handleLogin} /> : <Signup onLogin={handleLogin} />}
           <button onClick={toggleForm}>
-            {showLogin ? "Sign up" : "Login"}
+            {showLogin ? "Sign-Paw" : "Woof-In"}
           </button>
         </>
       )}
