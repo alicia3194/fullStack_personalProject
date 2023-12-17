@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useUser } from "../../../../useContext/UserContext";
+import "./Login.css"
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
@@ -33,24 +34,24 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <section>
-      <h2>Log in</h2>
+    <section className="login-form">
+      <h2 className="h2-login">Log in</h2>
       <form className="new" onSubmit={handleSubmit}>
-        <label>Email:</label>
-        <input
+        <label className="label-login">Email:</label>
+        <input className="input-login"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label>Password:</label>
-        <input
+        <label className="label-login">Password:</label>
+        <input className="input-login"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Log in</button>
+        <button className="button-login" type="submit">Log in</button>
 
       </form>
     </section>

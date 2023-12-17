@@ -1,0 +1,11 @@
+.container-home{
+    padding: 8rem;
+    text-align: center;
+   
+}
+
+.home-search{
+    height: 230px;
+    display:flex;
+   
+}

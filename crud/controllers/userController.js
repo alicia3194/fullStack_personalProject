@@ -18,8 +18,6 @@ const createUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    // Obtener el usuario de la base de datos por correo electrónico
     const user = await userModel.getUserByEmail(email);
 
     if (user) {

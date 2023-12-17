@@ -1,23 +1,18 @@
 require("dotenv").config();
 
 const express = require("express");
-
 const app = express();
 const port = process.env.PORT || 5001;
-
 const cors = require("cors");
 
 // Permitir todas las solicitudes CORS
 app.use(cors());
-
-// middlewares
-
 app.use(express.json());
 
 // Rutas
-const placeRoutes = require("./src/routes/placeRoutes");
-const favoritesRoutes = require("./src/routes/favoritesRoutes");
-const userRoutes = require("./src/routes/userRoutes");
+const placeRoutes = require("./crud/routes/placeRoutes");
+const favoritesRoutes = require("./crud/routes/favoritesRoutes");
+const userRoutes = require("./crud/routes/userRoutes");
 
 app.use("/api/places", placeRoutes);
 app.use("/api/users", userRoutes);

@@ -31,7 +31,7 @@ const loginUser = async (email, password) => {
       throw new Error("Usuario no encontrado");
     }
 
-    const passwordMatch = user.password === password; // Asegúrate de manejar la contraseña de manera segura
+    const passwordMatch = user.password === password;
     if (passwordMatch) {
       result = user;
     } else {

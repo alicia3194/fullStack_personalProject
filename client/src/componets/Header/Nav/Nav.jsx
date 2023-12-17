@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useUser } from '../../../useContext/UserContext';
+import "./Nav.css"
 
 const Nav = () => {
   const { user, logoutUser } = useUser(); 
 
   return (
-    <nav>
-      <ul>
+    <div className="navbar-container">
+      <nav className="navbar">
+      <ul className="nav-list">
         <li><Link to="/">Inicio</Link></li>
         <li><Link to="/favorite">Favoritos</Link></li>
         {user && (
@@ -17,6 +19,7 @@ const Nav = () => {
         )}
       </ul>
     </nav>
+      </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from "../Main/Nav/Nav";
+import Nav from "./Nav/Nav";
 import { useUser } from '../../useContext/UserContext';
 
 const Header = () => {
@@ -8,9 +8,7 @@ const Header = () => {
   return (
     <header>
     {user && (
-      <>
         <Nav />
-      </>
     )}
   </header>
   );
