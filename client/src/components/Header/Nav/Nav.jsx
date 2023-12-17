@@ -11,9 +11,9 @@ const Nav = () => {
       <nav className="navbar">
       <ul className="nav-list">
         <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/favorite">Favoritos</Link></li>
         {user && (
           <>
+          <li><Link to="/favorites/check">Ver Favoritos</Link></li>
             <li><Link to="/" onClick={logoutUser}>Cerrar Sesión</Link></li>
           </>
         )}

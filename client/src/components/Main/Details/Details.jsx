@@ -1,25 +1,75 @@
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import React, { useState } from 'react';
-import Nav from "../../Header/Nav/Nav";
-import './Details.css'; 
+import './Details.css';
+import Nav from '../../Header/Nav/Nav';
+import { useFavorites } from '../../../context/FavoritesContext';
 
-const Details = ({ places }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+
+const Details = ({ places, user }) => {
   const { placeId } = useParams();
-  const place = places && places.find(p => p.place_id === parseInt(placeId, 10));
+  const place = places.find((p) => p.place_id.toString() === placeId);
 
-  if (!place) {
-    return <div>No se encontró el lugar</div>;
-  }
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleFavoriteClick = () => {
-    setIsFavorite(!isFavorite);
+  useEffect(() => {
+    const checkFavoriteStatus = async () => {
+      try {
+        if (user && place) {
+          const response = await fetch('http://localhost:5001/api/favorites/check', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              user_email: user.email,
+              place_id: place.place_id,
+            }),
+          });
+
+          const data = await response.json();
+          setIsFavorite(data.isFavorite);
+        }
+      } catch (error) {
+        console.error('Error al verificar el estado de favoritos:', error);
+      }
+    };
+
+    checkFavoriteStatus();
+  }, [user, place]);
+
+  const handleToggleFavorite = async () => {
+    try {
+      if (user && place) {
+        const response = await fetch('http://localhost:5001/api/favorites/toggle', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            user_email: user.email,
+            place_id: place.place_id,
+          }),
+        });
+
+        const data = await response.json();
+        setIsFavorite(data.isFavorite);
+      }
+    } catch (error) {
+      console.error('Error al agregar/quitar de favoritos:', error);
+    }
+  };
+
+  const { addToFavorites } = useFavorites();
+
+  const handleAddToFavorites = () => {
+  
+    addToFavorites(place.place_id);
   };
 
   return (
     <>
-      <Nav/>
-      <section className="details-container">
+      <Nav />
+      <div className="details-container">
         <div className="image-container">
           <img src={place.image} alt={place.name} />
         </div>
@@ -27,15 +77,13 @@ const Details = ({ places }) => {
           <h2>{place.name}</h2>
           <p>Ubicación: {place.location}</p>
           <p>Horarios: {place.schedules}</p>
-          {/* Otros detalles */}
-          <button onClick={handleFavoriteClick}>
-            {isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
-          </button>
+          <button onClick={handleAddToFavorites}>Agregar a favoritos</button>
         </div>
-      </section>
+      </div>
     </>
   );
 };
 
 export default Details;
+
 

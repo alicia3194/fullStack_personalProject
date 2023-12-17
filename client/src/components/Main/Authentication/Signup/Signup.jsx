@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useUser } from "../../../../context/UserContext"; 
-import "./Signup.css"
-import "../Authentication.css"
+import "./Signup.css";
+import "../Authentication.css";
+import Parallax from "../../../../styles/Parrallax/Parallax";
 
 const Signup = () => {
   const { register, handleSubmit, formState: { errors, isSubmitted }, reset } = useForm();
@@ -43,7 +44,8 @@ const Signup = () => {
 
   return (
     <section className="signup-form">
-      <h2 className="h2-signup">Sign up</h2>
+       <Parallax />
+      <h2 className="h2-signup">Registro con Huella</h2>
       <form className="new" onSubmit={handleSubmit(onSubmit)}>
         <label className={`label-signup ${isSubmitted && !register("email").value ? 'error' : ''}`}>
           Email:
@@ -76,7 +78,7 @@ const Signup = () => {
         {errors.password && <span className="error-message"></span>}
 
         <button className="auth-button" type="submit">
-          Sign up
+        Sign-Paw
         </button>
       </form>
     </section>

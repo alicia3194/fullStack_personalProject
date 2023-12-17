@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useUser } from "../../../../context/UserContext";
 import "./Login.css";
 import "../Authentication.css";
+import Parallax from '../../../../styles/Parrallax/Parallax';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
@@ -45,7 +46,8 @@ const Login = ({ onLogin }) => {
 
   return (
     <section className="login-form">
-      <h2 className="h2-login">Log in</h2>
+      <Parallax />
+      <h2 className="h2-login">Entrada a destinos PetFriendly</h2>
       <form className="new" onSubmit={handleSubmit}>
         <label className={`label-login ${emailError ? 'error' : ''}`}>Email:</label>
         <input
@@ -64,8 +66,9 @@ const Login = ({ onLogin }) => {
         />
         
         <button className="auth-button" type="submit">
-          Log in
+        Woof-In
         </button>
+        <p>¿Sin huella? ¡Regístrate!</p>
       </form>
     </section>
   );

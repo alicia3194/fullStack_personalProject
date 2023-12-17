@@ -5,23 +5,32 @@
 |   |   |-- Footer.jsx
 |   |-- Header
 |   |   |-- Header.jsx
-|   |   |-- Nav.jsx
+|   |   |-- Nav
+|   |   |   |-- Nav.jsx
 |   |-- Main
 |   |   |-- Authentication
 |   |   |   |-- Login
 |   |   |   |   |-- Login.jsx
-|   |   |   |   |-- Login.css
 |   |   |   |-- Signup
 |   |   |   |   |-- Signup.jsx
-|   |   |   |   |-- Signup.css
-|   |   |   |-- Authentication.css
-|   |   |-- FilterButtons.jsx
-|   |   |-- PlaceCard.jsx
-|   |   |-- Search.jsx
-|   |   |-- Home.jsx
+|   |   |   |-- Authentication.jsx
+|   |   |-- Home
+|   |   |   |-- FilterButtons
+|   |   |   |   |-- FilterButtons.jsx
+|   |   |   |-- PlaceCard
+|   |   |   |   |-- PlaceCard.jsx
+|   |   |   |-- Search
+|   |   |   |   |-- Search.jsx
+|   |   |   |-- Home.jsx
+|   |   |-- Favorites
+|   |   |   |-- Favorites.jsx
+|   |   |-- Details
+|   |   |   |-- Details.jsx
 |   |   |-- Main.css
+|   |   |-- Main.jsx
 |-- context
 |   |-- UserContext.jsx
+|   |-- FavoritesContext.jsx
 |-- public
 |   |-- image
 |-- styles
