@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter } from "react-router-dom";
-import Header from "./componets/Header/Header";
-import Main from "./componets/Main/Main";
-import Footer from "./componets/Footer/Footer";
-import { UserProvider } from './useContext/UserContext';
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+import { UserProvider } from './context/UserContext';
 import "./App.css";
 
 

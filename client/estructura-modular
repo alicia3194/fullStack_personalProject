@@ -1,0 +1,29 @@
+/src
+|-- assets
+|-- components
+|   |-- Footer
+|   |   |-- Footer.jsx
+|   |-- Header
+|   |   |-- Header.jsx
+|   |   |-- Nav.jsx
+|   |-- Main
+|   |   |-- Authentication
+|   |   |   |-- Login
+|   |   |   |   |-- Login.jsx
+|   |   |   |   |-- Login.css
+|   |   |   |-- Signup
+|   |   |   |   |-- Signup.jsx
+|   |   |   |   |-- Signup.css
+|   |   |   |-- Authentication.css
+|   |   |-- FilterButtons.jsx
+|   |   |-- PlaceCard.jsx
+|   |   |-- Search.jsx
+|   |   |-- Home.jsx
+|   |   |-- Main.css
+|-- context
+|   |-- UserContext.jsx
+|-- public
+|   |-- image
+|-- styles
+|-- App.jsx
+|-- App.css
