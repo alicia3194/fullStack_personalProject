@@ -5,6 +5,7 @@ import Authentication from "./Authentication/Authentication";
 import Details from "./Details/Details"
 import Favorites from "./Favorites/Favorites"
 import { useFavorites } from "../../context/FavoritesContext";
+import MapLeaflet from '../Map/MapLeaflet';
 
 const Main = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -46,6 +47,7 @@ const Main = () => {
             />
           }
         />
+        <Route path="/map" element={<MapLeaflet places={places} />} />
       </Routes>
     </main>
   );

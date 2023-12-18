@@ -4,10 +4,12 @@ CREATE TABLE Places (
     Name VARCHAR(255),
     Type VARCHAR(255),
     Location VARCHAR(255),
+    Latitude DOUBLE PRECISION,
+    Longitude DOUBLE PRECISION,
     Schedules VARCHAR(255),
-    Reviews VARCHAR(255),
     Image VARCHAR(255)
 );
+
 
 -- Creación tabla users.
 CREATE TABLE Users (
