@@ -37,29 +37,29 @@ const Home = ({ places }) => {
     setShowPlaces(true);
   };
   return (
-<div>
-      {user ? (
-        <>
-          <p>¡Bienvenido {user.email}! Encuentra los mejores lugares pet friendly para disfrutar junto a tu peludo compañero.</p>
-          <Search places={places} setSearchResults={handleSearch} />
-          <FilterButtons onFilterClick={handleFilterClick} />
-          {showPlaces && (
-            <div className="search-results">
-              {searchResults.map((place) => (
-                <PlaceCard key={place.place_id} place={place} />
-              ))}
-            </div>
-          )}
-        </>
-      ) : (
-        <>
-          {showLogin ? <Login onLogin={handleLogin} /> : <Signup onLogin={handleLogin} />}
-          <button onClick={toggleForm}>
-            {showLogin ? "Sign-Paw" : "Woof-In"}
-          </button>
-        </>
+<div className="home-container">
+  {user ? (
+    <>
+      <p className="welcome-message">¡Bienvenid@ {user.email}! Encuentra los mejores lugares PetFriendly para disfrutar junto a tu peludo compañero.</p>
+      <Search places={places} setSearchResults={handleSearch} />
+      <FilterButtons onFilterClick={handleFilterClick} />
+      {showPlaces && (
+        <div className="search-results">
+          {searchResults.map((place) => (
+            <PlaceCard key={place.place_id} place={place} />
+          ))}
+        </div>
       )}
-    </div>
+    </>
+  ) : (
+    <>
+      {showLogin ? <Login onLogin={handleLogin} /> : <Signup onLogin={handleLogin} />}
+      <button onClick={toggleForm}>
+        {showLogin ? "Sign-Paw" : "Woof-In"}
+      </button>
+    </>
+  )}
+</div>
   );
 };
 

@@ -1,0 +1,12 @@
+/* Estilos para el componente Home */
+.home-container {
+    margin-top: 80px; /* Ajusta el valor según sea necesario para evitar la superposición con el nav */
+  }
+  
+  /* Estilos para el mensaje de bienvenida */
+  .welcome-message {
+    margin-bottom: 20px;
+  }
+  
+  /* Otros estilos según sea necesario */
+  

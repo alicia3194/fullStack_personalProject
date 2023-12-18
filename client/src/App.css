@@ -6,9 +6,11 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Kalnia', serif; /* Asegúrate de reemplazar 'Kalnia' con el nombre exacto de la fuente */
   margin: 0;
+  font-size: 18px; 
 }
+
 .auth-button {
   padding: 12px;
   border: none;
@@ -19,5 +21,5 @@ body {
 }
 
 .auth-button:hover {
-  background-color: #45a049;
+  background-color: #45a09d;
 }
