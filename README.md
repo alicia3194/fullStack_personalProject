@@ -46,12 +46,12 @@ Esta aplicación Full Stack permite a los usuarios buscar lugares Petfriendly y 
 - Se implementaron algunas pruebas unitarias.
 
 ## Capturas de Pantalla
-<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/1.png">
-<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/2.png">
-<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/3.png">
-<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/4.png">
-<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/5.png">
-<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/6.png">
+<img width="200" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/1.png">
+<img width="200" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/2.png">
+<img width="200" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/3.png">
+<img width="200" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/4.png">
+<img width="200" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/5.png">
+<img width="200" src="https://github.com/alicia3194/fullStack_personalProject/blob/main/public/6.png">
  
 
 ## FUTURAS MEJORAS
