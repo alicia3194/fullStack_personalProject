@@ -78,6 +78,8 @@ Agregar la capacidad para que los usuarios dejen reseñas y comentarios sobre lo
 
 Realizar mejoras en la interfaz de usuario para proporcionar una experiencia más intuitiva y atractiva. 
 
+### Desplegar en Render, Netlify, Vercel etc.
+
 
 
 
