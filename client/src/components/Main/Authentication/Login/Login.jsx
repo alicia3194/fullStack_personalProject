@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useUser } from "../../../../context/UserContext";
-import "./Login.css";
 import "../Authentication.css";
-import Parallax from '../../../../styles/Parrallax/Parallax';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
@@ -13,7 +13,6 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
 
     if (!email || !password) {
-
       setEmailError(!email);
       setPasswordError(!password);
       return;
@@ -40,36 +39,35 @@ const Login = ({ onLogin }) => {
     }
   };
 
-
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
   return (
     <section className="login-form">
-      <Parallax />
       <h2 className="h2-login">Entrada a destinos PetFriendly</h2>
-      <form className="new" onSubmit={handleSubmit}>
-        <label className={`label-login ${emailError ? 'error' : ''}`}>Email:</label>
-        <input
-          className={`input-login ${emailError ? 'error' : ''}`}
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <Form className="new" onSubmit={handleSubmit}>
+        <FloatingLabel controlId="email" label="Email:" className={`label-login ${emailError ? 'error' : ''}`}>
+          <Form.Control
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={`input-login ${emailError ? 'error' : ''}`}
+          />
+        </FloatingLabel>
 
-        <label className={`label-login ${passwordError ? 'error' : ''}`}>Password:</label>
-        <input
-          className={`input-login ${passwordError ? 'error' : ''}`}
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        
-        <button className="auth-button" type="submit">
-        Woof-In
-        </button>
+        <FloatingLabel controlId="password" label="Password:" className={`label-login ${passwordError ? 'error' : ''}`}>
+          <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={`input-login ${passwordError ? 'error' : ''}`}
+          />
+        </FloatingLabel>
         <p>¿Sin huella? ¡Regístrate!</p>
-      </form>
+        <button className="auth-button" type="submit">
+          Woof-In
+        </button>
+      </Form>
     </section>
   );
 };

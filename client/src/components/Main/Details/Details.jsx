@@ -4,6 +4,8 @@ import './Details.css';
 import Nav from '../../Header/Nav/Nav';
 import { useFavorites } from '../../../context/FavoritesContext';
 
+import Alert from 'react-bootstrap/Alert';
+
 
 const Details = ({ places, user }) => {
   const { placeId } = useParams();
@@ -74,10 +76,10 @@ const Details = ({ places, user }) => {
           <img src={place.image} alt={place.name} />
         </div>
         <div className="details-info">
-          <h2>{place.name}</h2>
+          <h5>{place.name}</h5>
           <p>Ubicación: {place.location}</p>
           <p>Horarios: {place.schedules}</p>
-          <button onClick={handleAddToFavorites}>Agregar a favoritos</button>
+          <button onClick={handleAddToFavorites}>&#10084;</button>
         </div>
       </div>
     </>

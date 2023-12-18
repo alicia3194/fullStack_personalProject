@@ -1,23 +1,24 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useUser } from "../../../../context/UserContext"; 
-import "./Signup.css";
+import { useUser } from "../../../../context/UserContext";
+import { FloatingLabel, Form } from "react-bootstrap";
 import "../Authentication.css";
-import Parallax from "../../../../styles/Parrallax/Parallax";
 
 const Signup = () => {
-  const { register, handleSubmit, formState: { errors, isSubmitted }, reset } = useForm();
   const { loginUser } = useUser();
-
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [nameError, setNameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const onSubmit = async (data) => {
-    if (!data.email || !data.name || !data.password) {
-      setEmailError(!data.email);
-      setNameError(!data.name);
-      setPasswordError(!data.password);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!email || !name || !password) {
+      setEmailError(!email);
+      setNameError(!name);
+      setPasswordError(!password);
       return;
     }
 
@@ -27,7 +28,7 @@ const Signup = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ email, name, password }),
       });
 
       const responseData = await res.json();
@@ -38,49 +39,55 @@ const Signup = () => {
     } catch (error) {
       console.error("Error al crear usuario:", error);
     }
-
-    reset();
   };
 
   return (
     <section className="signup-form">
-       <Parallax />
       <h2 className="h2-signup">Registro con Huella</h2>
-      <form className="new" onSubmit={handleSubmit(onSubmit)}>
-        <label className={`label-signup ${isSubmitted && !register("email").value ? 'error' : ''}`}>
-          Email:
-        </label>
-        <input
-          className={`input-signup ${isSubmitted && !register("email").value ? 'error' : ''}`}
-          type="text"
-          {...register("email", { required: true })}
-        />
-        {errors.email && <span className="error-message"></span>}
+      <Form className="new" onSubmit={handleSubmit}>
+        <FloatingLabel
+          controlId="email"
+          label="Email:"
+          className={`label-signup ${emailError ? 'error' : ''}`}
+        >
+          <Form.Control
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={`input-signup ${emailError ? 'error' : ''}`}
+          />
+        </FloatingLabel>
 
-        <label className={`label-signup ${isSubmitted && !register("name").value ? 'error' : ''}`}>
-          Name:
-        </label>
-        <input
-          className={`input-signup ${isSubmitted && !register("name").value ? 'error' : ''}`}
-          type="text"
-          {...register("name", { required: true })}
-        />
-        {errors.name && <span className="error-message"></span>}
+        <FloatingLabel
+          controlId="name"
+          label="Name:"
+          className={`label-signup ${nameError ? 'error' : ''}`}
+        >
+          <Form.Control
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className={`input-signup ${nameError ? 'error' : ''}`}
+          />
+        </FloatingLabel>
 
-        <label className={`label-signup ${isSubmitted && !register("password").value ? 'error' : ''}`}>
-          Password:
-        </label>
-        <input
-          className={`input-signup ${isSubmitted && !register("password").value ? 'error' : ''}`}
-          type="text"
-          {...register("password", { required: true })}
-        />
-        {errors.password && <span className="error-message"></span>}
+        <FloatingLabel
+          controlId="password"
+          label="Password:"
+          className={`label-signup ${passwordError ? 'error' : ''}`}
+        >
+          <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={`input-signup ${passwordError ? 'error' : ''}`}
+          />
+        </FloatingLabel>
 
         <button className="auth-button" type="submit">
-        Sign-Paw
+          Sign-Paw
         </button>
-      </form>
+      </Form>
     </section>
   );
 };
