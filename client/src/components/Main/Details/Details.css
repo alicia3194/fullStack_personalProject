@@ -1,30 +1,32 @@
 .details-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en tamaños de pantalla más pequeños */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  max-width: 600px; /* Ajusta el ancho máximo según tus necesidades */
+}
 
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap; 
-  }
-  
-  .image-container {
-    flex: 0 0 auto;
-    max-width: 300px;
-    margin-right: 20px;
-  }
-  
-  .details-info {
-    flex: 1 1 calc(100% - 320px);
-  }
-  
-  img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    display: block; 
-  }
-  
+.image-container {
+  flex: 0 0 100%; /* Ocupa el 100% del ancho en dispositivos pequeños, se envolverá en la siguiente línea en dispositivos más grandes */
+  max-width: 300px;
+  margin-bottom: 20px; /* Añadí margen inferior para separar la imagen de los detalles en dispositivos pequeños */
+}
+
+.details-info {
+  flex: 1 1 100%; /* Ocupa el 100% del ancho en dispositivos pequeños, se envolverá en la siguiente línea en dispositivos más grandes */
+}
+
+img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+

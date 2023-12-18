@@ -8,8 +8,10 @@ const PlaceCard = ({ place }) => {
     <Link to={`/places/${place.place_id}`}>
       <div className="place-card">
         <img src={place.image} alt={place.name} />
-        <h3>{place.name}</h3>
+        <p className="name-card">{place.name}</p>
       </div>
+      <br></br>
+      <br></br>
     </Link>
   );
 };

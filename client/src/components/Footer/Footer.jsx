@@ -4,7 +4,7 @@ import './Footer.css';
 function Footer() {
   return (
     <footer className='footer'>
-      soy el footer
+      <section className="icons-footer">🐾 🖤 🐕‍🦺 WhofFriendly©</section>
     </footer>
   );
 }

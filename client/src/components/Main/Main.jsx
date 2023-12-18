@@ -39,12 +39,13 @@ const Main = () => {
           path="/favorites/check"
           element={
             <Favorites
-              places={places}
-              placeId={places.placeId}
-              isFavorite={favorites.includes(places.placeId)}
-              addToFavorites={addToFavorites}
-              removeFromFavorites={removeFromFavorites}
-            />
+            places={places}
+            placeId={places.placeId}
+            isFavorite={favorites.includes(places.placeId)}
+            addToFavorites={addToFavorites}
+            removeFromFavorites={removeFromFavorites}
+            className="favorites-card" 
+          />
           }
         />
         <Route path="/map" element={<MapLeaflet places={places} />} />

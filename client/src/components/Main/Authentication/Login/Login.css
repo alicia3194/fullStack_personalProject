@@ -1,4 +1,3 @@
-
 .login-form {
     width: 100%;
     max-width: 400px;
@@ -30,8 +29,7 @@
     font-size: 16px;
     box-sizing: border-box;
   }
-  
-  /* Estilos para resaltar el error */
+
   .label-login.error {
     color: red;
   }
@@ -50,7 +48,7 @@
   }
   
   .auth-button:hover {
-    background-color: #45a049;
+    background-color: #9a9d9e;
   }
   
   

@@ -1,12 +1,9 @@
-
 import React from 'react';
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import "../Map/MapLeaflet.css"
 
 const MapLeaflet = ({ places }) => {
-    // Asumiendo que places es una lista de objetos con campos latitude y longitude
-    // Puedes ajustar esto según la estructura real de tus datos
     const markers = places.map((place) => ({
       position: [place.latitude, place.longitude],
       name: place.name,
@@ -14,6 +11,7 @@ const MapLeaflet = ({ places }) => {
     }));
   
     return (
+    <>
       <div className="map-card-container">
         <MapContainer center={markers.length > 0 ? markers[0].position : [0, 0]} zoom={13} style={{ width: '100%', height: '100%' }}>
           <TileLayer
@@ -32,6 +30,7 @@ const MapLeaflet = ({ places }) => {
           ))}
         </MapContainer>
       </div>
+      </>
     );
   };
   

@@ -1,0 +1,255 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .welcome-section {
+    margin-bottom: 20px;
+    color: black;
+  }
+  .b_search{
+    background-color: #e3eaeca3;
+    border-radius: 50px;
+  }
+  .b_search:hover{
+    background-color: #c1c5c6a3;
+  }
+
+
+  button {
+    background-color: #c1f1f1fd;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 20px;
+  }
+  button:hover {
+    background-color:#989e9e;
+  }
+
+.b_home1 {
+    position: relative;
+    display: inline-block;
+    background-color: #DC7F9B;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 800ms ease, color 800ms ease;
+  }
+  
+  .b_home1:hover {
+    background: #fff;
+    color: #DC7F9B;
+  }
+  
+  .b_home1:before,
+  .b_home1:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: currentColor;
+    transition: 400ms ease all;
+  }
+  
+  .b_home1:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .b_home1:hover:before,
+  .b_home1:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+  }
+  
+  .b_home2 {
+    position: relative;
+    display: inline-block;
+    background-color: #B298DC;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 800ms ease, color 800ms ease;
+  }
+  
+  .b_home2:hover {
+    background: #fff;
+    color: #B298DC;
+  }
+  
+  .b_home2:before,
+  .b_home2:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: currentColor;
+    transition: 400ms ease all;
+  }
+  
+  .b_home2:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .b_home2:hover:before,
+  .b_home2:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+  }
+  
+  .b_home3 {
+    position: relative;
+    display: inline-block;
+    background-color: #F7A1C4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 800ms ease, color 800ms ease;
+  }
+  
+  .b_home3:hover {
+    background: #fff;
+    color: #F7A1C4;
+  }
+  
+  .b_home3:before,
+  .b_home3:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: currentColor;
+    transition: 400ms ease all;
+  }
+  
+  .b_home3:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .b_home3:hover:before,
+  .b_home3:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+  }
+  
+  .b_home4 {
+    position: relative;
+    display: inline-block;
+    background-color: #E0B7B7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 800ms ease, color 800ms ease;
+  }
+  
+  .b_home4:hover {
+    background: #fff;
+    color: #E0B7B7;
+  }
+  
+  .b_home4:before,
+  .b_home4:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: currentColor;
+    transition: 400ms ease all;
+  }
+  
+  .b_home4:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .b_home4:hover:before,
+  .b_home4:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+  }
+  
+  .b_home5 {
+    position: relative;
+    display: inline-block;
+    background-color: #94BFA7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 800ms ease, color 800ms ease;
+  }
+  
+  .b_home5:hover {
+    background: #fff;
+    color: #94BFA7;
+  }
+  
+  .b_home5:before,
+  .b_home5:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: currentColor;
+    transition: 400ms ease all;
+  }
+  
+  .b_home5:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .b_home5:hover:before,
+  .b_home5:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+  }
+  
+
+  p{
+    font-size: 20px;
+  }

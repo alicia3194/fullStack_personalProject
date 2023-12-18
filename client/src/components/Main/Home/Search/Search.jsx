@@ -17,7 +17,7 @@ const Search = ({ places, setSearchResults }) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button onClick={handleSearchClick}>Buscar</button>
+      <button className='b_search' onClick={handleSearchClick}>🔍</button>
     </div>
   );
 };
