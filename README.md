@@ -47,12 +47,12 @@ Esta aplicación Full Stack permite a los usuarios buscar lugares Petfriendly y 
 
 ## Capturas de Pantalla
 
-![Captura de Pantalla 1](./public/1.png =250x)
-![Captura de Pantalla 2](./public/2.png =250x)
-![Captura de Pantalla 3](./public/3.png =250x)
-![Captura de Pantalla 4](./public/4.png =250x)
-![Captura de Pantalla 5](./public/5.png =250x)
-![Captura de Pantalla 6](./public/6.png =250x)
+![Captura de Pantalla 1](./public/1.png | width=250)
+![Captura de Pantalla 2](./public/2.png | width=250)
+![Captura de Pantalla 3](./public/3.png | width=250)
+![Captura de Pantalla 4](./public/4.png | width=250)
+![Captura de Pantalla 5](./public/5.png | width=250)
+![Captura de Pantalla 6](./public/6.png | width=250)
 
 
 ## FUTURAS MEJORAS
