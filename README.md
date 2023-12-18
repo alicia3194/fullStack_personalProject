@@ -46,13 +46,12 @@ Esta aplicación Full Stack permite a los usuarios buscar lugares Petfriendly y 
 - Se implementaron algunas pruebas unitarias.
 
 ## Capturas de Pantalla
-
-![Captura de Pantalla 1](./public/1.png | width=250)
-![Captura de Pantalla 2](./public/2.png | width=250)
-![Captura de Pantalla 3](./public/3.png | width=250)
-![Captura de Pantalla 4](./public/4.png | width=250)
-![Captura de Pantalla 5](./public/5.png | width=250)
-![Captura de Pantalla 6](./public/6.png | width=250)
+<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/edit/main/public/1.png">
+<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/edit/main/public/2.png">
+<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/edit/main/public/3.png">
+<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/edit/main/public/4.png">
+<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/edit/main/public/5.png">
+<img width="156" src="https://github.com/alicia3194/fullStack_personalProject/edit/main/public/6.png">
 
 
 ## FUTURAS MEJORAS
