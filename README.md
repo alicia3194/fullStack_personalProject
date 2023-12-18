@@ -10,7 +10,6 @@ Esta aplicación Full Stack permite a los usuarios buscar lugares Petfriendly y 
   - Express (Node.js)
   - PostgreSQL (Base de Datos)
   - Pruebas Unitarias
-  - Otras Librerías (detallar según sea necesario)
 
 - **Frontend:**
   - React
