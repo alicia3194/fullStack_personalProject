@@ -47,4 +47,30 @@ Esta aplicación Full Stack permite a los usuarios buscar lugares Petfriendly y 
 
 ## Capturas de Pantalla
 
+## FUTURAS MEJORAS
+
+### Autenticación de Usuarios real con Passport y OAuth (por ejemplo, Google)
+
+Implementar una autenticación de usuarios más robusta utilizando Passport.js. Esto permitirá a los usuarios autenticarse mediante OAuth con servicios populares como Google. Esto añade una capa adicional de seguridad y comodidad.
+
+### Documentación con Swagger
+
+### Más Testing
+
+Ampliar la cobertura de pruebas unitarias y de integración.
+
+### Controlador de Administrador
+
+Implementar un controlador de administrador que permita la gestión de usuarios, lugares y reseñas.
+
+### Reseñas de Lugares y Comentarios de Usuarios
+
+Agregar la capacidad para que los usuarios dejen reseñas y comentarios sobre los lugares.
+
+### Mejoras en la Interfaz de Usuario
+
+Realizar mejoras en la interfaz de usuario para proporcionar una experiencia más intuitiva y atractiva. 
+
+
+
 
