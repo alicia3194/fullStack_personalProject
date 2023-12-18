@@ -1,0 +1,36 @@
+.place-card {
+  padding: 12px;
+  margin: 14px;
+  width: 200px;
+  height: 200px;
+  display: block;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.place-card:hover {
+  transform: rotate(3deg);
+}
+
+.place-card img {
+  max-width: 400px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.name-card {
+  color: black;
+  text-decoration-line: underline;
+}
+
+.search-container {
+  margin-top: 20px;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+

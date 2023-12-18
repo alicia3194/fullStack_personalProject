@@ -4,10 +4,12 @@ CREATE TABLE Places (
     Name VARCHAR(255),
     Type VARCHAR(255),
     Location VARCHAR(255),
+    Latitude DOUBLE PRECISION,
+    Longitude DOUBLE PRECISION,
     Schedules VARCHAR(255),
-    Reviews VARCHAR(255),
     Image VARCHAR(255)
 );
+
 
 -- Creación tabla users.
 CREATE TABLE Users (
@@ -45,3 +47,5 @@ VALUES
 ('Cafebrería ad Hoc', 'Librería', 'Buen Suceso 14', 'De 10:00 a 22:00 hrs, de lunes a sábado', NULL, 'https://www.srperro.com/media/imagenes_galeria/negocio_3c3aea2b-d99e-48a8-a835-77a9c0046edb.original.jpg')
 -- Insercción de datos en la tabla users.
 INSERT INTO Users (name, email, password) VALUES ($1, $2, $3) RETURNING *;
+
+INSERT INTO Favorites (place_id, user_id) VALUES (1, 3) RETURNING *;
