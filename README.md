@@ -1,4 +1,4 @@
-# Proyecto Full Stack: Buscador de Lugares Petfriendly
+# Proyecto Full Stack: Buscador de Lugares Petfriendly​🐶​
 
 ## Descripción del Proyecto
 
