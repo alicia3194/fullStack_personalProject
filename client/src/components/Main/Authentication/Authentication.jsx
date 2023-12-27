@@ -8,14 +8,14 @@ const Authentication = () => {
   return (
     <div className="authentication-container">
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />//acción para logearse
+        <Route path="/signup" element={<Signup />} />//acción para resitrarse
       </Routes>
       <div className="auth-buttons">
-        <Link to="/login" className="auth-button">
+        <Link to="/login" className="auth-button">//boton que te manda a logearte
           Wof-in
         </Link>
-        <Link to="/signup" className="auth-button">
+        <Link to="/signup" className="auth-button">//boton que te manda para registrate
           Sign-Paw
         </Link>
       </div>

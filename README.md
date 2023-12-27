@@ -7,6 +7,7 @@ Esta aplicación Full Stack permite a los usuarios buscar lugares Petfriendly y 
 ## Tecnologías Utilizadas
 
 - **Backend:**
+
   - Express (Node.js)
   - PostgreSQL (Base de Datos)
   - Pruebas Unitarias
@@ -27,13 +28,16 @@ Esta aplicación Full Stack permite a los usuarios buscar lugares Petfriendly y 
 ## Funcionalidades Principales
 
 - **CRUD de Datos:**
+
   - Realiza operaciones de Crear, Leer, Actualizar y Eliminar datos a través de las rutas de la API.
 
 - **Búsqueda y Filtrado:**
+
   - Permite a los usuarios buscar lugares Petfriendly por nombre.
   - Ofrece opciones de filtrado mediante botones de categorías según el tipo de lugar.
 
 - **Autenticación de Usuarios:**
+
   - Implementa un sistema de autenticación para que los usuarios puedan acceder a funcionalidades exclusivas.
 
 - **Gestión de Favoritos:**

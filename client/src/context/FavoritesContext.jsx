@@ -12,20 +12,16 @@ export const useFavorites = () => {
 
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
-  console.log('Estado inicial de favoritos:', favorites);
 
 const addToFavorites = (placeId) => {
-  console.log('Intento agregar a favoritos:', placeId);    
   
   if (placeId !== undefined && placeId !== null) {
       setFavorites((prevFavorites) => {
         if (!prevFavorites.includes(placeId)) {
           const newFavorites = [...prevFavorites, placeId];
-          console.log('Nuevo estado de favoritos (agregar):', newFavorites);
-          return newFavorites;
+          return newFavorites;//añadido a favoritos
         } else {
-          console.warn('El lugar ya está en la lista de favoritos.');
-          return prevFavorites;
+          return prevFavorites; // ya esta en favoritos
         }
       });
     } else {

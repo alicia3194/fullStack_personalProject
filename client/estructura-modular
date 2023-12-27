@@ -28,6 +28,9 @@
 |   |   |   |-- Details.jsx
 |   |   |-- Main.css
 |   |   |-- Main.jsx
+|   |-- Map
+|   |   |-- MapLeaflet.jsx
+|   |   |-- MapLeaflet.ccs
 |-- context
 |   |-- UserContext.jsx
 |   |-- FavoritesContext.jsx
