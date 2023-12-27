@@ -6,7 +6,7 @@ import "../Authentication.css";
 import Parallax from "../../../../styles/Parrallax/Parallax";
 
 const Signup = () => {
-  const { register, handleSubmit, formState: { errors, isSubmitted }, reset } = useForm();
+  const { register, handleSubmit, formState: { errors, isSubmitted }, reset } = useForm(); //comprobaciones de que hay algo escrito
   const { loginUser } = useUser();
 
   const [emailError, setEmailError] = useState(false);

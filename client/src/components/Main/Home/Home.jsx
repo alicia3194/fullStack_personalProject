@@ -46,7 +46,7 @@ const Home = ({ places }) => {
             <br></br>
             <br></br>
             <br></br>
-            <h4 className="p_home">¡Bienvenido {user.email}!</h4> 
+            <h4 className="p_home">¡Bienvenida/o {user.email}!</h4> 
           <p>Encuentra los mejores lugares pet friendly para disfrutar junto a tu peludo compañero.</p>
           </div>
           <img src={Imagen} alt="Perros" style={{ width: "400px", height: "auto"}} />

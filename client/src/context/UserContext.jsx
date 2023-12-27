@@ -8,7 +8,7 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const loginUser = (userData) => {
-    setUser(userData);
+    setUser(userData);//iniciar sesión
   };
 
   const logoutUser = () => {

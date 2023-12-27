@@ -2,23 +2,27 @@ import React, { useState } from "react";
 import { useUser } from "../../../../context/UserContext";
 import "./Login.css";
 import "../Authentication.css";
-import Parallax from '../../../../styles/Parrallax/Parallax';
+// import Parallax from '../../../../styles/Parrallax/Parallax';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const { loginUser } = useUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    setEmailError(false);
+    setPasswordError(false);
+  
     if (!email || !password) {
-
       setEmailError(!email);
       setPasswordError(!password);
       return;
     }
-
+  
     try {
       const res = await fetch("http://localhost:5001/api/users/login", {
         method: "POST",
@@ -27,26 +31,27 @@ const Login = ({ onLogin }) => {
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await res.json();
-
+  
       if (res.ok) {
         loginUser(data.user);
         onLogin(data.user);
+      } else {
+        if (data.error === "Usuario no encontrado") {
+          setEmailError(true);
+        } else if (data.error === "Contraseña incorrecta") {
+          setPasswordError(true);
+        }
       }
     } catch (error) {
-      res.status(500).json({ error: error.message });
       console.error("Error al iniciar sesión:", error);
     }
   };
-
-
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  
 
   return (
     <section className="login-form">
-      <Parallax />
       <h2 className="h2-login">Entrada a destinos PetFriendly</h2>
       <form className="new" onSubmit={handleSubmit}>
         <label className={`label-login ${emailError ? 'error' : ''}`}>Email:</label>
@@ -66,7 +71,7 @@ const Login = ({ onLogin }) => {
         />
         
         <button className="auth-button" type="submit">
-        Woof-In
+          Woof-In
         </button>
         <p>¿Sin huella? ¡Regístrate!</p>
       </form>

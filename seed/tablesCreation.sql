@@ -26,6 +26,15 @@ CREATE TABLE Favorites (
     User_id INT REFERENCES Users(User_id)
 );
 
+-- Creación de la tabla de reseñas.
+CREATE TABLE Reviews (
+    Review_id SERIAL PRIMARY KEY,
+    Place_id INT REFERENCES Places(Place_id),
+    User_id INT REFERENCES Users(User_id),
+    Rating INT,
+    Comment TEXT
+);
+
 -- Insercción de datos en la tabla places.
 INSERT INTO Places (name, type, location, schedules, reviews, image)
 VALUES 
@@ -49,3 +58,12 @@ VALUES
 INSERT INTO Users (name, email, password) VALUES ($1, $2, $3) RETURNING *;
 
 INSERT INTO Favorites (place_id, user_id) VALUES (1, 3) RETURNING *;
+
+-- Inserción de datos en la tabla de reseñas.
+INSERT INTO Reviews (place_id, user_id, rating, comment)
+VALUES 
+(1, 2, 4, 'Me encanta este lugar, la comida es deliciosa.'),
+(2, 3, 5, 'El café aquí es increíble, definitivamente lo recomiendo.'),
+(3, 1, 3, 'Buen ambiente, pero la comida podría mejorar.'),
+(4, 4, 4, 'Gran lugar para relajarse y leer un libro.'),
+(5, 2, 5, 'Amo este restaurante, la comida es excepcional.');

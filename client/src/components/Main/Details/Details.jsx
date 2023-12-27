@@ -41,32 +41,6 @@ const Details = ({ places, user }) => {
     checkFavoriteStatus();
   }, [user, place]);
 
-  const handleToggleFavorite = async () => {
-    try {
-      if (user && place) {
-        const response = await fetch('http://localhost:5001/api/favorites/toggle', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            user_email: user.email,
-            place_id: place.place_id,
-          }),
-        });
-
-        const data = await response.json();
-        setIsFavorite(data.isFavorite);
-
-        setTimeout(() => {
-          setShowAlert(false);
-        }, 3000);
-      }
-    } catch (error) {
-      console.error('Error al agregar/quitar de favoritos:', error);
-    }
-  };
-
   const { addToFavorites } = useFavorites();
 
   const handleAddToFavorites = () => {

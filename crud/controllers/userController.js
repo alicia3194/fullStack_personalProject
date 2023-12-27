@@ -1,13 +1,21 @@
+const bcrypt = require("bcrypt");
 const userModel = require("../models/userModel");
+const jwt = require("../../middlewares/checkToken");
 
 const createUser = async (req, res) => {
   try {
-    const newUser = req.body; // {name, email, password}
+    const newUser = req.body;
+    const hashedPassword = await bcrypt.hash(newUser.password, 10);
+    newUser.password = hashedPassword;
+
     const createdUser = await userModel.createUser(newUser);
 
+    const token = jwt.generateToken({ userId: createdUser.user_id });
+
     res.status(201).json({
-      message: "Usuario creado exitosamente",
+      message: "Usuario creado",
       user: createdUser,
+      token: token,
     });
   } catch (error) {
     console.error(error);
@@ -21,39 +29,59 @@ const loginUser = async (req, res) => {
     const user = await userModel.getUserByEmail(email);
 
     if (user) {
-      // Comparación directa de contraseñas (no segura para producción)
-      const passwordMatch = user.password === password;
+      const passwordMatch = await bcrypt.compare(password, user.password);
+
       if (passwordMatch) {
-        res.status(200).json({
+        const token = jwt.generateToken({ userId: user.user_id });
+
+        return res.status(200).json({
           user: { email: user.email },
-          message: "Inicio de sesión exitoso",
+          message: "Inicio de sesión correcto",
+          token: token,
         });
-      } else {
-        throw new Error("Contraseña incorrecta");
       }
-    } else {
-      throw new Error("Usuario no encontrado");
     }
+
+    // Si llegamos aquí, el usuario no fue encontrado o la contraseña es incorrecta
+    throw new Error("Usuario no encontrado o contraseña incorrecta");
   } catch (error) {
-    res.status(401).json({ error: error.message });
+    // Manejar otros errores
+    console.error("Error al iniciar sesión:", error);
+    return res
+      .status(401)
+      .json({ error: "Usuario no encontrado o contraseña incorrecta" });
   }
 };
 
 const getUserByEmail = async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email } = req.query;
+
+    if (!email) {
+      return res
+        .status(400)
+        .json({ error: "Se requiere un correo electrónico" });
+    }
+
     const user = await userModel.getUserByEmail(email);
 
     if (user) {
-      res.status(200).json({
-        user,
+      const userResponse = {
+        userId: user.user_id,
+        name: user.name,
+        email: user.email,
+      };
+
+      return res.status(200).json({
+        user: userResponse,
         message: "Usuario encontrado",
       });
     } else {
-      throw new Error("Usuario no encontrado");
+      return res.status(404).json({ error: "Usuario no encontrado" });
     }
   } catch (error) {
-    res.status(404).json({ error: error.message });
+    console.error(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
