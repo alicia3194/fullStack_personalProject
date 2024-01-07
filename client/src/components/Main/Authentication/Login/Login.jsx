@@ -32,24 +32,19 @@ const Login = ({ onLogin }) => {
       body: JSON.stringify({ email, password}),
     });
     const data = await res.json();
-    console.log("Respuesta del servidor después de iniciar sesión:", data);
 
     if (res.ok) {
 
-      const userId = data.user.user_id; // Modificación aquí
-      console.log("userId después de iniciar sesión:", userId);
+      const userId = data.user.user_id;
     
-      // Asegúrate de que el objeto user tenga la propiedad user_id
       const userData = { user_id: userId };
     
-      // Genera el token y muestra su contenido
+
       const token = data.token;
-      console.log("Token después de iniciar sesión:", token);
     
       loginUser(userData);
       onLogin(userData);
 
-      // localStorage.setItem("token", data.token);
 
     } else {
       if (data.error === "Usuario incorrecto") {
