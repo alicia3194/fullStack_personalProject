@@ -3,21 +3,16 @@ import { useForm } from "react-hook-form";
 import { useUser } from "../../../../context/UserContext"; 
 import "./Signup.css";
 import "../Authentication.css";
-import Parallax from "../../../../styles/Parrallax/Parallax";
 
 const Signup = () => {
-  const { register, handleSubmit, formState: { errors, isSubmitted }, reset } = useForm(); //comprobaciones de que hay algo escrito
+  const { register, handleSubmit, formState: { errors, isSubmitted }, reset } = useForm();
   const { loginUser } = useUser();
 
-  const [emailError, setEmailError] = useState(false);
-  const [nameError, setNameError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (data) => {
     if (!data.email || !data.name || !data.password) {
-      setEmailError(!data.email);
-      setNameError(!data.name);
-      setPasswordError(!data.password);
+      setErrorMessage("Por favor, complete todos los campos.");
       return;
     }
 
@@ -33,18 +28,23 @@ const Signup = () => {
       const responseData = await res.json();
 
       if (res.ok) {
+        localStorage.setItem("token", responseData.token);
+
         loginUser(responseData.user);
+        reset();
+      } else {
+        if (responseData.error === "El usuario ya esta registrado") {
+        } else {
+          setErrorMessage("Error al crear usuario. Por favor, inténtelo de nuevo.");
+        }
       }
     } catch (error) {
-      console.error("Error al crear usuario:", error);
+      setErrorMessage("Error al crear usuario. Por favor, inténtelo de nuevo.");
     }
-
-    reset();
   };
 
   return (
     <section className="signup-form">
-       <Parallax />
       <h2 className="h2-signup">Registro con Huella</h2>
       <form className="new" onSubmit={handleSubmit(onSubmit)}>
         <label className={`label-signup ${isSubmitted && !register("email").value ? 'error' : ''}`}>
@@ -76,10 +76,12 @@ const Signup = () => {
           {...register("password", { required: true })}
         />
         {errors.password && <span className="error-message"></span>}
-
+        
         <button className="auth-button" type="submit">
-        Sign-Paw
+          Sign-Paw
         </button>
+
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
     </section>
   );

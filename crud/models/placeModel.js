@@ -17,7 +17,6 @@ const getPlacesByType = async (type) => {
     ]);
     return places;
   } catch (error) {
-    console.error("Error en getPlacesByType:", error.message);
     throw error;
   }
 };

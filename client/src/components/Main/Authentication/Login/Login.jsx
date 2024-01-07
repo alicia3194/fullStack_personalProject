@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useUser } from "../../../../context/UserContext";
 import "./Login.css";
 import "../Authentication.css";
-// import Parallax from '../../../../styles/Parrallax/Parallax';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
@@ -13,42 +12,56 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     setEmailError(false);
     setPasswordError(false);
-  
+
     if (!email || !password) {
       setEmailError(!email);
       setPasswordError(!password);
       return;
     }
-  
+
     try {
       const res = await fetch("http://localhost:5001/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-  
-      const data = await res.json();
-  
-      if (res.ok) {
-        loginUser(data.user);
-        onLogin(data.user);
-      } else {
-        if (data.error === "Usuario no encontrado") {
-          setEmailError(true);
-        } else if (data.error === "Contraseña incorrecta") {
-          setPasswordError(true);
-        }
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token") || ""}`,
+      },
+      body: JSON.stringify({ email, password}),
+    });
+    const data = await res.json();
+    console.log("Respuesta del servidor después de iniciar sesión:", data);
+
+    if (res.ok) {
+
+      const userId = data.user.user_id; // Modificación aquí
+      console.log("userId después de iniciar sesión:", userId);
+    
+      // Asegúrate de que el objeto user tenga la propiedad user_id
+      const userData = { user_id: userId };
+    
+      // Genera el token y muestra su contenido
+      const token = data.token;
+      console.log("Token después de iniciar sesión:", token);
+    
+      loginUser(userData);
+      onLogin(userData);
+
+      // localStorage.setItem("token", data.token);
+
+    } else {
+      if (data.error === "Usuario incorrecto") {
+        setEmailError(true);
+      } else if (data.error === "Contraseña incorrecta") {
+        setPasswordError(true);
       }
-    } catch (error) {
-      console.error("Error al iniciar sesión:", error);
     }
-  };
-  
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+  }
+};
 
   return (
     <section className="login-form">

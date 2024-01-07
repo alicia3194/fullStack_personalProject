@@ -9,8 +9,7 @@ const createUser = async (req, res) => {
     newUser.password = hashedPassword;
 
     const createdUser = await userModel.createUser(newUser);
-
-    const token = jwt.generateToken({ userId: createdUser.user_id });
+    const token = jwt.generateToken({ user_id: createdUser.user_id });
 
     res.status(201).json({
       message: "Usuario creado",
@@ -18,7 +17,6 @@ const createUser = async (req, res) => {
       token: token,
     });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: error.message });
   }
 };
@@ -35,18 +33,14 @@ const loginUser = async (req, res) => {
         const token = jwt.generateToken({ userId: user.user_id });
 
         return res.status(200).json({
-          user: { email: user.email },
+          user: { user_id: user.user_id, email: user.email },
           message: "Inicio de sesión correcto",
           token: token,
         });
       }
     }
-
-    // Si llegamos aquí, el usuario no fue encontrado o la contraseña es incorrecta
-    throw new Error("Usuario no encontrado o contraseña incorrecta");
   } catch (error) {
-    // Manejar otros errores
-    console.error("Error al iniciar sesión:", error);
+    res.status(500).json({ error: error.message });
     return res
       .status(401)
       .json({ error: "Usuario no encontrado o contraseña incorrecta" });
@@ -67,21 +61,27 @@ const getUserByEmail = async (req, res) => {
 
     if (user) {
       const userResponse = {
-        userId: user.user_id,
+        user_id: user.user_id,
         name: user.name,
         email: user.email,
       };
-
-      return res.status(200).json({
-        user: userResponse,
-        message: "Usuario encontrado",
-      });
     } else {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: error.message });
+  }
+};
+
+const getUserById = async (userId) => {
+  try {
+    const result = await db.one("SELECT * FROM Users WHERE User_id = $1", [
+      userId,
+    ]);
+    return result;
+  } catch (error) {
+    console.error("Error en getUserById:", error);
+    throw error;
   }
 };
 
@@ -89,4 +89,5 @@ module.exports = {
   createUser,
   loginUser,
   getUserByEmail,
+  getUserById,
 };

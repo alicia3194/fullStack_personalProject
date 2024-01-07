@@ -9,17 +9,4 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-// pool.connect((err, client, release) => {
-//   if (err) {
-//     return console.error("Error en el cliente");
-//   }
-//   client.query("SELECT NOW()", (err, result) => {
-//     release();
-//     if (err) {
-//       return console.error("Error");
-//     }
-//     console.log(result.rows);
-//   });
-// });
-
 module.exports = pool;

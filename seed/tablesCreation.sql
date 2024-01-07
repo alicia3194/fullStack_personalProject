@@ -21,9 +21,11 @@ CREATE TABLE Users (
 
 -- Creación tabla favorites.
 CREATE TABLE Favorites (
-    Favorites_id SERIAL PRIMARY KEY,
-    Place_id INT REFERENCES Places(Place_id),
-    User_id INT REFERENCES Users(User_id)
+    Favorite_id SERIAL PRIMARY KEY,
+    User_id INT,
+    Place_id INT,
+    FOREIGN KEY (User_id) REFERENCES Users(User_id),
+    FOREIGN KEY (Place_id) REFERENCES Places(Place_id)
 );
 
 -- Creación de la tabla de reseñas.

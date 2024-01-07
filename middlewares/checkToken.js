@@ -6,7 +6,7 @@ const generateToken = (payload) => {
 
 const checkToken = (token) => {
   try {
-    const decoded = jwt.check(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     return decoded;
   } catch (error) {
     return null;

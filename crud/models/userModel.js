@@ -7,15 +7,12 @@ const createUser = async (userInfo) => {
   try {
     client = await pool.connect();
     const data = await client.query(
-      "INSERT INTO users(name, email, password) VALUES ($1, $2, $3) RETURNING *",
+      "INSERT INTO Users(Name, Email, Password) VALUES ($1, $2, $3) RETURNING *",
       [name, email, password]
     );
     result = data.rows[0];
   } catch (err) {
-    console.error(err);
-    throw err;
-  } finally {
-    client.release();
+    res.status(500).json({ error: error.message });
   }
   return result;
 };
@@ -38,10 +35,7 @@ const loginUser = async (email, password) => {
       throw new Error("Contraseña incorrecta");
     }
   } catch (err) {
-    console.error(err);
-    throw err;
-  } finally {
-    client.release();
+    res.status(500).json({ error: error.message });
   }
   return result;
 };
@@ -50,21 +44,32 @@ const getUserByEmail = async (email) => {
   let client, result;
   try {
     client = await pool.connect();
-    const data = await client.query("SELECT * FROM users WHERE email = $1", [
+    const data = await client.query("SELECT * FROM Users WHERE Email = $1", [
       email,
     ]);
     result = data.rows[0];
-  } catch (err) {
-    console.error(err);
-    throw err;
-  } finally {
     client.release();
+  } catch (err) {
+    res.status(500).json({ error: error.message });
   }
   return result;
+};
+
+const getUserById = async (userId) => {
+  try {
+    const result = await pool.query("SELECT * FROM Users WHERE User_id = $1", [
+      userId,
+    ]);
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error en getUserById:", error);
+    throw error;
+  }
 };
 
 module.exports = {
   createUser,
   loginUser,
   getUserByEmail,
+  getUserById,
 };
