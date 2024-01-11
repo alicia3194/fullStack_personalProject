@@ -15,7 +15,6 @@ Esta aplicación Full Stack permite a los usuarios buscar lugares Petfriendly y 
 - **Frontend:**
   - React
   - Bootstrap y Normalize.css (Librerías de Estilos)
-  - Mapas (detallar la librería utilizada)
 
 ## Configuración del Proyecto
 
